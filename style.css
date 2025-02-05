@@ -159,7 +159,7 @@ nav {
 
 
 /* Navigation Bar */
-/*nav {
+nav {
     background: #222;
     padding: 20px;
     text-align: center;
@@ -220,4 +220,44 @@ nav ul li a {
     text-align: center;
     top: 80px;
     left: 40%;
+}
+
+/* book manage */
+
+.container {
+    width: 40%;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+input, button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#message {
+    margin-top: 10px;
+    font-weight: bold;
 }
