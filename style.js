@@ -39,3 +39,42 @@ function searchBooks() {
         }
     });
 }
+
+// book updatation
+document.getElementById("addBookForm").addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append("title", document.getElementById("title").value);
+    formData.append("author", document.getElementById("author").value);
+    formData.append("quantity", document.getElementById("quantity").value);
+    formData.append("image", document.getElementById("image").files[0]);
+
+    try {
+        let response = await fetch("http://localhost:5000/add-book", {
+            method: "POST",
+            body: formData
+        });
+
+        let data = await response.json();
+        document.getElementById("message").textContent = data.message;
+    } catch (error) {
+        console.error("Error adding book:", error);
+    }
+});
+
+document.getElementById("removeBookForm").addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const isbn = document.getElementById("removeIsbn").value;
+
+    try {
+        let response = await fetch(`http://localhost:5000/remove-book/${isbn}`, {
+            method: "DELETE"
+        });
+
+        let data = await response.json();
+        document.getElementById("message").textContent = data.message;
+    } catch (error) {
+        console.error("Error removing book:", error);
+    }
+});
